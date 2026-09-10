@@ -1,0 +1,11 @@
+{
+  "name": "Antes de levantar a voz",
+  "short_name": "Orações",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#F2F1EC",
+  "theme_color": "#1B4F8F",
+  "icons": [
+    { "src": "./icone.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
