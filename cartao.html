@@ -353,6 +353,60 @@ h3{
 }
 .colofao code{font-family:var(--mono); font-size:.7rem; color:var(--azul)}
 
+/* ============ banda de calibragem: o que se lê todas as vezes ============ */
+.calibragem{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1.75rem 3rem;
+  margin-top:1.75rem;
+  padding:1.5rem 0 1.75rem;
+  border-top:1px solid var(--linha);
+  border-bottom:2px solid var(--azul);
+}
+@media (min-width:56rem){
+  .calibragem{grid-template-columns:minmax(0,15rem) minmax(0,1fr)}
+}
+.calibragem h3{margin-bottom:.8rem}
+
+/* coluna esquerda: as três regras, compactas */
+.cal-regras dl{margin:0; display:flex; flex-direction:column; gap:.85rem}
+.cal-regras dt{
+  font-family:var(--mono); font-size:.688rem; font-weight:500;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--ocre);
+  margin-bottom:.15rem;
+}
+.cal-regras dd{margin:0; font-size:.8125rem; line-height:1.5; color:var(--neutro)}
+.cal-regras dd b{color:var(--tinta); font-weight:600}
+
+/* coluna direita: o alívio e a lista */
+.cal-estranho h2{font-size:1.3125rem; margin-bottom:.5rem}
+.cal-estranho .alivio{
+  margin:0 0 1rem;
+  font-family:var(--serif); font-size:1.0625rem; line-height:1.55;
+  color:var(--tinta); max-width:32rem;
+}
+.cal-estranho .alivio b{font-weight:600}
+.cal-lista{
+  list-style:none; margin:0; padding:0;
+  display:grid; grid-template-columns:1fr; gap:.5rem;
+}
+@media (min-width:44rem){
+  .cal-lista{grid-template-columns:repeat(2,minmax(0,1fr)); gap:.5rem 1.75rem}
+}
+.cal-lista li{
+  position:relative; padding-left:1.3rem;
+  font-size:.875rem; line-height:1.45; color:var(--tinta);
+}
+.cal-lista li::before{
+  content:"\00D7";
+  position:absolute; left:0; top:-.02em;
+  font-family:var(--mono); font-size:.95rem; color:var(--ocre);
+}
+.cal-nota{
+  grid-column:1/-1; margin:.35rem 0 0;
+  font-size:.75rem; line-height:1.5; color:var(--neutro); max-width:38rem;
+}
+
 /* ============ índice em grupos ============ */
 .rail{display:flex; flex-direction:column; gap:1.35rem}
 .rgrupo{display:flex; flex-direction:column; gap:.5rem}
@@ -525,8 +579,13 @@ h3{
   .versiculos{display:none}
   h1{font-size:20pt}
   .masthead{padding-bottom:.75rem}
-  .regras{display:none}
-  .estranho{break-before:page}
+  .calibragem{grid-template-columns:1fr 1.6fr; gap:.9rem 1.5rem; margin-top:.6rem;
+              padding:.6rem 0 .7rem; border-bottom:1.5px solid #000; break-inside:avoid}
+  .cal-estranho h2{font-size:12pt}
+  .cal-estranho .alivio{font-size:10pt}
+  .cal-lista{grid-template-columns:1fr 1fr}
+  .cal-lista li, .cal-regras dd{font-size:8.5pt}
+  .cal-nota{display:none}
 }
 </style>
 
@@ -538,21 +597,43 @@ h3{
       <h1>Antes de levantar a voz</h1>
     </div>
     <p class="standfirst">Dez blocos para orar em voz alta na igreja sem o peso de improvisar, e dez minutos por dia para treinar. A forma é decorada, o conteúdo é seu. <em>Comece pelo primeiro bloco — é o que destrava o resto.</em></p>
-    <dl class="regras">
-      <div class="regra">
-        <dt>A forma, não a frase</dt>
-        <dd>Pense <b>no que</b> vai orar, nunca em <b>como</b> frasear. O esqueleto pronto tira o risco de sair algo estranho.</dd>
-      </div>
-      <div class="regra">
-        <dt>Trinta segundos bastam</dt>
-        <dd>Uma oração curta e honesta vale mais do que três minutos de enchimento. <b>Ninguém espera longo.</b></dd>
-      </div>
-      <div class="regra">
-        <dt>Preparar não é trapaça</dt>
-        <dd>Escreva antes, leve num papel, leia. <b>Os salmos são orações escritas</b> — a igreja faz isso há dois mil anos.</dd>
-      </div>
-    </dl>
   </header>
+
+  <!-- ============ calibragem: lê-se todas as vezes ============ -->
+  <section class="calibragem" id="calibragem">
+    <div class="cal-regras">
+      <h3>Três regras</h3>
+      <dl>
+        <div>
+          <dt>A forma, não a frase</dt>
+          <dd>Pense <b>no que</b> vai orar, nunca em <b>como</b> frasear.</dd>
+        </div>
+        <div>
+          <dt>Trinta segundos bastam</dt>
+          <dd>Curta e honesta vence três minutos de enchimento. <b>Ninguém espera longo.</b></dd>
+        </div>
+        <div>
+          <dt>Preparar não é trapaça</dt>
+          <dd>Escreva antes e leia do papel. <b>Os salmos são orações escritas.</b></dd>
+        </div>
+      </dl>
+    </div>
+    <div class="cal-estranho">
+      <h2>O que soa estranho não é o que você teme</h2>
+      <p class="alivio">Gaguejar, travar, repetir «Senhor», voz tremida, oração de três frases: <b>nada disso a sala registra.</b> Estranho é outra coisa.</p>
+      <ul class="cal-lista">
+        <li>Pedir desculpa antes de começar («não sou bom nisso»)</li>
+        <li>Acelerar para acabar logo; a sala perde o passo</li>
+        <li>Falar baixo demais para o fundo da sala ouvir</li>
+        <li>Tapar o silêncio com bordões repetidos</li>
+        <li>Falar com a sala, não com Deus: explicar, informar, pregar</li>
+        <li>Terminar sem nomear o pedido e sem «em nome de Jesus, amém»</li>
+        <li>Contar no pedido o que alguém te confiou em particular</li>
+        <li>Repreender e não entregar ao Senhor: confronto aberto cansa a sala</li>
+      </ul>
+      <p class="cal-nota">Os seis primeiros só te fazem passar vergonha. O sétimo custa a outra pessoa — e é o único que não se desfaz.</p>
+    </div>
+  </section>
 
   <div class="cols">
 
@@ -1241,21 +1322,6 @@ h3{
       <li><label><input type="checkbox" data-d="4"><span class="n">04</span><span class="d">Na reunião grande, uma frase<small>Uma frase-semente deste cartão. Depois pare. Isso já é oração.</small></span></label></li>
       <li><label><input type="checkbox" data-d="5"><span class="n">05</span><span class="d">Abrir ou encerrar uma reunião<small>O bloco 2 deste cartão, decorando só a primeira frase.</small></span></label></li>
     </ol>
-  </section>
-
-  <!-- ============ o que soa estranho ============ -->
-  <section class="estranho">
-    <p class="eyebrow">Calibragem</p>
-    <h2>O que soa estranho não é o que você teme</h2>
-    <p>Gaguejar, repetir palavra, não achar o termo: ninguém repara nisso. Oração curta, simples e nervosa nunca soa estranha. O que soa estranho é outra coisa — e é uma lista curta:</p>
-    <ul>
-      <li><b>Pregar para as pessoas</b> fingindo falar com Deus («Senhor, tu sabes que tem gente aqui que precisa…»).</li>
-      <li><b>Contar o problema de alguém</b> através do pedido de oração.</li>
-      <li><b>Alongar</b> quando já se disse o que havia para dizer.</li>
-      <li><b>Escolher palavra difícil</b> para impressionar quem está ouvindo.</li>
-      <li><b>Declarar como resolvido</b> aquilo que se acabou de pedir.</li>
-      <li><b>Empilhar invocações</b> — «Senhor Deus amado Pai querido santo». Uma basta.</li>
-    </ul>
   </section>
 
   <footer class="colofao">
