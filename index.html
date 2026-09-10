@@ -376,6 +376,153 @@ h3{
 }
 .colofao code{font-family:var(--mono); font-size:.7rem; color:var(--azul)}
 
+/* ============ índice em grupos ============ */
+.rail{display:flex; flex-direction:column; gap:1.35rem}
+.rgrupo{display:flex; flex-direction:column; gap:.5rem}
+.rgrupo h3{font-size:.688rem; letter-spacing:.11em; color:var(--ocre)}
+
+/* ============ exercício diário ============ */
+.exercicio{margin-top:3.5rem; padding-top:2rem; border-top:1px solid var(--linha)}
+.exercicio .intro{max-width:36rem; font-size:.9375rem; line-height:1.6; color:var(--neutro); margin:.6rem 0 1.5rem}
+.exercicio .sub{margin:2.25rem 0 .9rem}
+
+.gatilho{
+  max-width:36rem; margin:0 0 1.75rem;
+  font-size:.875rem; line-height:1.55; color:var(--tinta);
+  border-left:3px solid var(--azul); padding:.15rem 0 .15rem 1rem;
+}
+.gatilho span{
+  display:block; font-family:var(--mono); font-size:.688rem; font-weight:500;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--azul); margin-bottom:.3rem;
+}
+
+/* o cronograma */
+.crono{display:flex; flex-direction:column; gap:1.4rem; margin-bottom:1.75rem}
+.fase{display:flex; flex-direction:column; gap:.6rem}
+.fase-cab{
+  display:flex; align-items:baseline; gap:.7rem; flex-wrap:wrap;
+  margin:0; padding-bottom:.4rem; border-bottom:1px solid var(--linha);
+}
+.fase-n{
+  font-family:var(--mono); font-size:.688rem; font-weight:500;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--ocre);
+}
+.fase-t{font-family:var(--serif); font-size:1.125rem; font-weight:600; color:var(--tinta)}
+.fase-s{
+  font-family:var(--mono); font-size:.688rem; color:var(--neutro);
+  font-variant-numeric:tabular-nums; margin-left:auto;
+}
+.segs{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.6rem}
+.segs li{display:grid; grid-template-columns:3.2rem minmax(0,1fr); gap:.9rem; align-items:baseline}
+.segs .s{
+  font-family:var(--mono); font-size:.8125rem; font-weight:500; color:var(--ocre);
+  font-variant-numeric:tabular-nums; text-align:right;
+}
+.segs .d{font-size:.875rem; line-height:1.55; color:var(--neutro); max-width:34rem}
+.segs .d b{color:var(--tinta); font-weight:600}
+.soma{
+  display:flex; align-items:baseline; gap:.6rem; flex-wrap:wrap;
+  margin:.3rem 0 0; padding-top:.7rem; border-top:2px solid var(--azul);
+  font-family:var(--mono); font-size:.8125rem; font-weight:500;
+  color:var(--tinta); font-variant-numeric:tabular-nums;
+}
+.soma > span:first-child{letter-spacing:.1em; text-transform:uppercase; font-size:.688rem; color:var(--neutro)}
+.soma .obs{
+  font-family:var(--sans); font-size:.75rem; font-weight:400; color:var(--neutro);
+  letter-spacing:0; text-transform:none; margin-left:auto; max-width:26rem;
+}
+
+/* a coleta: o único texto para decorar */
+.coleta{
+  background:var(--papel); box-shadow:var(--lift);
+  border-left:3px solid var(--ocre); border-radius:2px;
+  padding:1.25rem 1.5rem 1.3rem; margin-bottom:.5rem;
+  display:flex; flex-direction:column; gap:.7rem;
+}
+.coleta .tag{
+  margin:0; font-family:var(--mono); font-size:.688rem; font-weight:500;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--ocre);
+}
+.coleta p:last-child{
+  margin:0; font-family:var(--serif); font-size:1.25rem; line-height:1.6; max-width:31rem;
+}
+
+/* a semana */
+.semana{list-style:none; margin:0; padding:0; display:flex; flex-direction:column}
+.semana li{
+  display:grid; grid-template-columns:1fr; gap:.15rem;
+  padding:.8rem .25rem; border-bottom:1px solid var(--linha);
+}
+.semana li:first-child{border-top:1px solid var(--linha)}
+@media (min-width:46rem){
+  .semana li{grid-template-columns:7rem minmax(0,17rem) minmax(0,1fr); gap:1.2rem; align-items:baseline}
+}
+.semana .dia{
+  font-family:var(--mono); font-size:.75rem; font-weight:500;
+  letter-spacing:.06em; color:var(--ocre);
+}
+.semana .bl{font-family:var(--serif); font-size:1rem; line-height:1.4; color:var(--tinta)}
+.semana .pq{font-size:.8125rem; line-height:1.5; color:var(--neutro)}
+.semana .fds .dia, .semana .fds .bl{color:var(--neutro)}
+
+/* as três regras */
+.regras-ex{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1.5rem 2rem; margin:2rem 0 1.75rem;
+}
+.regra-ex p{margin:0; font-size:.8125rem; line-height:1.55; color:var(--neutro)}
+.regra-ex p b{color:var(--tinta); font-weight:600}
+.regra-ex .rt{
+  font-family:var(--sans); font-size:.75rem; font-weight:600;
+  letter-spacing:.04em; color:var(--azul); margin-bottom:.35rem;
+}
+
+/* o piso */
+.minimo{
+  border:1px solid var(--linha); border-left:3px solid var(--azul); border-radius:2px;
+  padding:1.1rem 1.35rem; display:flex; flex-direction:column; gap:.55rem; margin-bottom:1.5rem;
+}
+.minimo .tag{
+  margin:0; font-family:var(--mono); font-size:.688rem; font-weight:500;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--azul);
+}
+.minimo p:nth-child(2){margin:0; font-family:var(--serif); font-size:1.0625rem; line-height:1.55; color:var(--tinta)}
+.minimo .obs{margin:0; font-size:.8125rem; line-height:1.55; color:var(--neutro); max-width:34rem}
+
+.rodape-ex{max-width:36rem; font-size:.8125rem; line-height:1.55; color:var(--neutro); margin:0 0 .7rem}
+.rodape-ex b{color:var(--tinta); font-weight:600}
+.rodape-ex.aviso{border-left:2px solid var(--ocre); padding-left:.8rem}
+
+/* ============ bloco de autoridade: repreensões e guardas ============ */
+.repreensoes{
+  list-style:none; margin:.2rem 0; padding:0 0 0 1rem;
+  border-left:2px solid var(--ocre);
+  display:flex; flex-direction:column; gap:.5rem;
+}
+.repreensoes li{
+  font-family:var(--serif); font-size:1.0625rem; line-height:1.55;
+  color:var(--tinta); max-width:33rem;
+}
+.rezar.longa .virada{
+  font-family:var(--serif); font-style:italic; color:var(--azul);
+}
+.guardas{
+  border:1px solid var(--linha); border-radius:2px;
+  padding:1.1rem 1.35rem; display:flex; flex-direction:column; gap:.7rem;
+}
+.guardas .tag{
+  margin:0; font-family:var(--mono); font-size:.688rem; font-weight:500;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--azul);
+}
+.guardas ol{
+  margin:0; padding-left:1.1rem;
+  display:flex; flex-direction:column; gap:.55rem;
+}
+.guardas li{font-size:.8125rem; line-height:1.55; color:var(--neutro); max-width:34rem}
+.guardas li::marker{color:var(--ocre); font-family:var(--mono); font-size:.75rem}
+.guardas li b{color:var(--tinta); font-weight:600}
+.guardas .obs{margin:0; font-size:.8125rem; line-height:1.5; color:var(--neutro)}
+
 @media (prefers-reduced-motion:reduce){
   *{animation:none !important; transition:none !important}
 }
@@ -388,7 +535,10 @@ h3{
   }
   body{font-size:10.5pt}
   .wrap{max-width:none; padding:0}
-  .rail, .escada, .colofao{display:none}
+  .rail, .escada, .colofao, .regras-ex, .rodape-ex{display:none}
+  .exercicio{break-before:page}
+  .crono, .semana, .coleta, .minimo{break-inside:avoid; page-break-inside:avoid}
+  .coleta{border-left:2px solid #000; box-shadow:none}
   .cols{display:block; margin-top:1.25rem}
   .blocos{gap:1.5rem}
   .bloco{break-inside:avoid; page-break-inside:avoid}
@@ -411,7 +561,7 @@ h3{
       <p class="eyebrow">Cartão de bolso &middot; Portimão, Algarve</p>
       <h1>Antes de levantar a voz</h1>
     </div>
-    <p class="standfirst">Seis blocos para orar em voz alta na igreja sem o peso de improvisar. A forma é decorada, o conteúdo é seu. <em>Comece pelo primeiro bloco — é o que destrava o resto.</em></p>
+    <p class="standfirst">Dez blocos para orar em voz alta na igreja sem o peso de improvisar, e dez minutos por dia para treinar. A forma é decorada, o conteúdo é seu. <em>Comece pelo primeiro bloco — é o que destrava o resto.</em></p>
     <dl class="regras">
       <div class="regra">
         <dt>A forma, não a frase</dt>
@@ -431,15 +581,38 @@ h3{
   <div class="cols">
 
     <nav class="rail" aria-label="Índice dos blocos">
-      <h3>Blocos</h3>
-      <ol>
-        <li><a href="#b-antes">Antes de levantar a voz <span class="t">10 s</span></a></li>
-        <li><a href="#b-reuniao">Abrir e encerrar <span class="t">15 s</span></a></li>
-        <li><a href="#b-mente">Pela minha mente <span class="t">20 s</span></a></li>
-        <li><a href="#b-irmaos">Pelos meus irmãos <span class="t">30 s</span></a></li>
-        <li><a href="#b-juventude">Pela juventude daqui <span class="t">25 s</span></a></li>
-        <li><a href="#b-mover">Por um mover no Algarve <span class="t">30 s</span></a></li>
-      </ol>
+      <div class="rgrupo">
+        <h3>Para começar</h3>
+        <ol>
+          <li><a href="#b-antes">Antes de levantar a voz <span class="t">10 s</span></a></li>
+          <li><a href="#b-reuniao">Abrir e encerrar <span class="t">15 s</span></a></li>
+          <li><a href="#b-mente">Pela minha mente <span class="t">20 s</span></a></li>
+        </ol>
+      </div>
+      <div class="rgrupo">
+        <h3>Pelos outros</h3>
+        <ol>
+          <li><a href="#b-irmaos">Pelos meus irmãos <span class="t">30 s</span></a></li>
+          <li><a href="#b-juventude">Pela juventude daqui <span class="t">25 s</span></a></li>
+          <li><a href="#b-geracao">Pela nova geração <span class="t">30 s</span></a></li>
+        </ol>
+      </div>
+      <div class="rgrupo">
+        <h3>Por esta terra</h3>
+        <ol>
+          <li><a href="#b-avivamento">Por um avivamento aqui <span class="t">30 s</span></a></li>
+          <li><a href="#b-mover">Por um mover no Algarve <span class="t">30 s</span></a></li>
+          <li><a href="#b-autoridade">Autoridade sobre esta terra <span class="t">30 s</span></a></li>
+          <li><a href="#b-turistas">Pelos que chegam <span class="t">30 s</span></a></li>
+        </ol>
+      </div>
+      <div class="rgrupo">
+        <h3>Prática</h3>
+        <ol>
+          <li><a href="#exercicio">Dez minutos por dia <span class="t">10 min</span></a></li>
+          <li><a href="#escada">A escada <span class="t">5 degraus</span></a></li>
+        </ol>
+      </div>
     </nav>
 
     <main class="blocos">
@@ -711,7 +884,114 @@ h3{
         <p class="quando"><b>Como usar:</b> escolha UMA frase-semente concreta — o verão que acabou, a renda, quem foi embora — e ore só sobre ela. Vale mais do que tentar cobrir tudo.</p>
       </section>
 
-      <!-- ============ 6 ============ -->
+      <!-- ============ nova geração ============ -->
+      <section class="bloco" id="b-geracao">
+        <header>
+          <h2>Pela nova geração</h2>
+        </header>
+        <p class="quando">Aqui não se ora pela situação dos jovens — isso é o bloco anterior. Ora-se pelo que Deus quer levantar neles: chamado, pureza, ousadia, e que a fé não pare na geração dos pais. Para consagração, culto de jovens, batismo ou envio.</p>
+
+        <div class="rezar">
+          <p class="tag">≈ 30 s &middot; ler em voz alta</p>
+          <p>Pai, levanta uma geração aqui em Portimão que te queira mais do que qualquer outra coisa. Não deixa a fé parar na geração dos pais. Que os nossos filhos te conheçam por eles mesmos, e não só pelo que ouviram em casa. Dá coragem a eles para dizer o teu nome na escola e no trabalho, sem vergonha. E se hoje tem um jovem ouvindo o teu chamado, que ele diga sim.</p>
+        </div>
+
+        <div class="rezar longa">
+          <p class="tag">≈ 80 s &middot; culto de jovens</p>
+          <p>Pai, eu venho pela nova geração. Não venho pedir que Tu os arrumes. Venho pedir que Tu os chames. Levanta jovens que buscam a tua face, e não só a tua mão. Que aprendam a te querer quando ninguém está olhando. Guarda o coração deles num tempo em que tudo está a um toque de distância. Dá limpeza de verdade, e não só aparência. Dá ousadia, Pai. Que não tenham vergonha do evangelho na sala de aula, no turno da noite, no grupo do WhatsApp. E levanta os que ficam. Muitos vão embora daqui, e Tu sabes disso. Marca alguns para ficar e servir nesta cidade. Que a fé dos que nasceram aqui seja deles mesmos: não só herança de casa, mas encontro contigo. Se hoje um jovem disser sim para ti, confirma esse sim.</p>
+        </div>
+
+        <div class="grupo">
+          <h3>Frases-semente</h3>
+          <ul class="sementes">
+            <li>Levanta uma geração que te busque por ti mesmo.</li>
+            <li>Chama, Pai. Eles sabem ouvir.</li>
+            <li>Que a fé não pare na geração dos pais.</li>
+            <li>Dá coragem onde hoje tem vergonha.</li>
+            <li>Guarda o coração deles no meio de tanta tela.</li>
+            <li>Marca alguns para ficar e servir nesta cidade.</li>
+            <li>Põe fome de ti onde hoje só tem pressa.</li>
+          </ul>
+        </div>
+
+        <div class="grupo">
+          <h3>Para orar com a Bíblia</h3>
+          <div class="versiculos">
+            <div class="v">
+              <p class="ref">Salmos 119:9 <span>&middot; ARA</span></p>
+              <blockquote>De que maneira poderá o jovem guardar puro o seu caminho? Observando-o segundo a tua palavra.</blockquote>
+              <p class="como">Peça pureza pelo caminho da Palavra, não por vigilância: «Pai, dá a eles gosto pela tua palavra, para que a pureza venha de dentro.»</p>
+            </div>
+            <div class="v">
+              <p class="ref">Romanos 1:16 <span>&middot; ARA</span></p>
+              <blockquote>Porque não me envergonho do evangelho, pois é o poder de Deus para a salvação de todo aquele que crê, primeiro do judeu e também do grego.</blockquote>
+              <p class="como">Ore por ousadia com nome e lugar: «Tira a vergonha, Pai. Na escola, no trabalho, na turma deles.»</p>
+            </div>
+            <div class="v">
+              <p class="ref">2 Timóteo 1:5 <span>&middot; ARA</span></p>
+              <blockquote>recordando-me da fé sem fingimento que há em ti, a qual, primeiro, habitou em tua avó Loide e em tua mãe Eunice, e estou certo de que também em ti.</blockquote>
+              <p class="como">Ore para a fé atravessar a segunda geração: «Que essa fé chegue neles inteira e sem fingimento, e seja deles mesmos.»</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="quando"><b>Como usar:</b> comece pelo chamado e não pelo risco — fale do que Deus quer levantar neles, não do que pode dar errado com eles.</p>
+      </section>
+
+      <!-- ============ avivamento ============ -->
+      <section class="bloco" id="b-avivamento">
+        <header>
+          <h2>Por um avivamento na igreja daqui</h2>
+        </header>
+        <p class="quando">Avivamento no sentido próprio: não é Deus alcançar a região — é a igreja acordar primeiro. Para culto de oração, vigília, jejum, ou aquele momento em que alguém diz «precisamos de um avivamento».</p>
+
+        <div class="rezar">
+          <p class="tag">≈ 30 s &middot; ler em voz alta</p>
+          <p>Pai, aviva a tua igreja aqui. A gente vem, canta, volta pra casa, e às vezes sai igual entrou. Quebranta o nosso coração antes de encher a nossa boca. Traz de volta a fome pela tua Palavra e a vontade de orar. Se o avivamento começar em alguém hoje, que comece em mim.</p>
+        </div>
+
+        <div class="rezar longa">
+          <p class="tag">≈ 70 s &middot; vigília ou clamor</p>
+          <p>Pai, tu já te moveste nesta cidade. Muito antes de nós, teve gente ajoelhada aqui em Portimão pedindo o teu Espírito, e tu desceste. Faz de novo, Senhor. A gente não te pede igreja cheia. Te pede igreja acordada. Tira de nós a religiosidade morna, o culto no automático, a oração que virou o que sobra da semana. Devolve o primeiro amor. Devolve a fome pela tua Palavra. Junta as igrejas do Algarve, Senhor — a gente é pouco demais pra andar dividido. E começa em mim. Sonda o meu coração, mostra o que eu ando escondendo e quebranta o que precisa ser quebrantado. Se transbordar, que transborde de dentro pra fora. Em nome de Jesus.</p>
+        </div>
+
+        <div class="grupo">
+          <h3>Frases-semente</h3>
+          <ul class="sementes">
+            <li>Senhor, tu já te moveste nesta cidade.</li>
+            <li>A gente não quer igreja cheia, quer igreja acordada.</li>
+            <li>Quebranta antes de encher.</li>
+            <li>Devolve a fome pela tua Palavra.</li>
+            <li>Que a oração volte a ser a primeira coisa, não a que sobra.</li>
+            <li>Tira de nós o culto no automático.</li>
+            <li>Se começar em alguém, que comece em mim.</li>
+          </ul>
+        </div>
+
+        <div class="grupo">
+          <h3>Para orar com a Bíblia</h3>
+          <div class="versiculos">
+            <div class="v">
+              <p class="ref">Salmos 85:6 <span>&middot; ARC</span></p>
+              <blockquote>Não tornarás a vivificar-nos, para que o teu povo se alegre em ti?</blockquote>
+              <p class="como">Devolva a pergunta a Deus como pedido: «Senhor, vivifica-nos outra vez.» É clamor por vida nova, não por programação nova.</p>
+            </div>
+            <div class="v">
+              <p class="ref">Apocalipse 2:4 <span>&middot; ARC</span></p>
+              <blockquote>Tenho, porém, contra ti que deixaste o teu primeiro amor.</blockquote>
+              <p class="como">Leia em silêncio antes de abrir a boca e deixe o versículo te examinar primeiro. Depois ore «devolve o nosso primeiro amor» — sempre em nós, nunca apontando para a sala.</p>
+            </div>
+            <div class="v">
+              <p class="ref">Salmos 51:10 <span>&middot; ARC</span></p>
+              <blockquote>Cria em mim, ó Deus, um coração puro, e renova em mim um espírito reto.</blockquote>
+              <p class="como">Ore na primeira pessoa mesmo em público. É o versículo que sustenta o «que comece em mim» e tira da oração qualquer cheiro de cobrança.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="quando"><b>Como usar:</b> comece falando em «nós» e termine em «mim» — assim a oração por avivamento nunca vira recado para os irmãos que estão na sala.</p>
+      </section>
+
       <section class="bloco" id="b-mover">
         <header>
           <h2>Por um mover sobrenatural no Algarve</h2>
@@ -765,8 +1045,213 @@ h3{
         <p class="quando"><b>Como usar:</b> boa para a oração final do culto ou para a reunião de oração. Diga as cidades devagar — é a pausa entre os nomes que faz a sala orar com você.</p>
       </section>
 
+      <!-- ============ autoridade espiritual ============ -->
+      <section class="bloco" id="b-autoridade">
+        <header>
+          <h2>Autoridade espiritual sobre esta terra</h2>
+        </header>
+        <p class="quando">Culto de intercessão, vigília, campanha pela cidade — reunião cheia e voz erguida. Não é para oração de mesa nem momento sereno: se a reunião não estiver nesse tom, use só a curta ou vá para um bloco mais calmo.</p>
+
+        <div class="rezar">
+          <p class="tag">≈ 30 s &middot; ler em voz alta</p>
+          <p>Jesus, toda a autoridade é tua, no céu e na terra. Não é minha — eu só uso o teu nome. E em nome de Jesus eu repreendo todo poder das trevas sobre Portimão: cala, solta esta gente e sai. Declaro esta terra do Senhor: o Algarve é de Cristo. Pai, guarda quem está orando aqui, e me guarda limpo, porque não há autoridade em quem não obedece.</p>
+        </div>
+
+        <div class="rezar longa">
+          <p class="tag">≈ 3 min &middot; vigília de intercessão</p>
+          <p>Pai, antes de eu falar qualquer coisa, eu reconheço: a autoridade não é minha. É de Jesus. Ele disse que toda a autoridade lhe foi dada, no céu e na terra. Eu só falo debaixo do nome dele.</p>
+          <p>Senhor Jesus, eu declaro o teu senhorio sobre o Algarve. Portimão é tua. Lagos, Albufeira, Silves, Faro — tuas. Esta terra não pertence às trevas. Pertence ao Rei. E eu reivindico esta região para o teu Reino.</p>
+          <p>Agora eu falo, em nome de Jesus, a todo poder das trevas sobre esta terra.</p>
+          <ul class="repreensoes">
+            <li>Eu repreendo a obra que prende na bebida e na noite. Solta esta gente. Sai.</li>
+            <li>Eu repreendo o que endurece o coração e transforma o evangelho em piada aqui. Cala a tua voz. Perde a tua força.</li>
+            <li>Eu repreendo o que quebra casamento e arrebenta família por dentro. Larga essas casas. Sai, em nome de Jesus.</li>
+            <li>Eu repreendo o que empurra os nossos jovens para longe e os deixa sem raiz. Tira a mão deles.</li>
+            <li>Eu repreendo a opressão sobre quem trabalha o verão inteiro e chega ao inverno sem nada. Perde o teu domínio aqui, em nome de Jesus.</li>
+          </ul>
+          <p class="virada">Pai, agora eu peço — porque ordem é para as trevas, pedido é para ti.</p>
+          <p>Cobre quem está orando nesta sala. Cobre os nossos pastores e as famílias deles. Cobre as nossas casas, os nossos filhos, o nosso trabalho. Que nada disto volte contra nós. Abre os olhos desta cidade. Manda obreiros. Faz a tua palavra correr livre aqui.</p>
+          <p>E termina em mim, Senhor. Sonda a minha vida. Tira o que eu ando escondendo. Não adianta eu levantar a voz contra as trevas e viver na desobediência. Não há autoridade em quem não obedece. Aqui estou. Me limpa primeiro. Em nome de Jesus. Amém.</p>
+        </div>
+
+        <div class="grupo">
+          <h3>Frases-semente</h3>
+          <ul class="sementes">
+            <li>Toda a autoridade é tua, Jesus. Eu só falo debaixo do teu nome.</li>
+            <li>Declaro o senhorio de Cristo sobre Portimão e sobre todo o Algarve.</li>
+            <li>Em nome de Jesus: cala, solta e sai desta terra.</li>
+            <li>Reivindico esta região para o Reino — esta terra não é das trevas.</li>
+            <li>Repreendo a obra que prende na bebida e na noite. Solta esta gente.</li>
+            <li>Pai, cobre quem está orando, cobre os nossos pastores e as famílias.</li>
+            <li>Não há autoridade em quem não obedece. Começa em mim, Senhor.</li>
+          </ul>
+        </div>
+
+        <div class="grupo">
+          <h3>Para orar com a Bíblia</h3>
+          <div class="versiculos">
+            <div class="v">
+              <p class="ref">Mateus 28:18 <span>&middot; ARA</span></p>
+              <blockquote>Toda a autoridade me foi dada no céu e na terra.</blockquote>
+              <p class="como">É o alicerce do bloco inteiro. Abra por aqui antes de repreender qualquer coisa: dito primeiro, a oração deixa de ser bravata e passa a ser autoridade delegada.</p>
+            </div>
+            <div class="v">
+              <p class="ref">2 Coríntios 10:4 <span>&middot; ARA</span></p>
+              <blockquote>porque as armas da nossa milícia não são carnais, e sim poderosas em Deus, para destruir fortalezas;</blockquote>
+              <p class="como">Use ao nomear os alvos concretos da região. Mantém o foco na obra e no poder das trevas — nunca nas pessoas do outro lado da rua.</p>
+            </div>
+            <div class="v">
+              <p class="ref">Tiago 4:7 <span>&middot; ARC</span></p>
+              <blockquote>Sujeitai-vos, pois, a Deus; resisti ao diabo, e ele fugirá de vós.</blockquote>
+              <p class="como">É a ordem do versículo e a ordem da oração: primeiro sujeição, depois resistência. Feche com ele virado para dentro — «me sujeita primeiro, para eu poder resistir».</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guardas">
+          <p class="tag">Três coisas que seguram este bloco</p>
+          <ol>
+            <li><b>Ordem é para as trevas, pedido é para o Pai. Nunca inverter.</b> No texto isso está marcado pela frase de viragem — «Pai, agora eu peço». Mantenha essa frase: é ela que separa confronto bíblico de presunção.</li>
+            <li><b>A autoridade é sempre delegada.</b> «Em nome de Jesus» não é bordão de fim de frase, é a razão de a oração existir. Se cortar, sobra arrogância.</li>
+            <li><b>Repreende-se a obra e o poder das trevas</b> — nunca com nome inventado, nunca «o principado tal do Algarve»: ninguém recebeu essa revelação. E nunca a pessoa: o dono do bar não é o alvo, o vizinho indiferente não é o alvo.</li>
+          </ol>
+          <p class="obs">Sem datas e sem prazos. Declara-se o senhorio; não se marca calendário a Deus.</p>
+        </div>
+
+        <p class="quando"><b>Como usar:</b> este é o bloco de maior exposição do cartão inteiro — voz alta, sala cheia, palavra dirigida. <b>Não é por aqui que se começa.</b> Ganhe chão nos blocos curtos primeiro. Na primeira vez, leve só a curta. E se travar no meio, salte direto para o fecho — «não há autoridade em quem não obedece; começa em mim, Senhor» — que fecha sozinho e ninguém percebe que cortou.</p>
+      </section>
+
+      <!-- ============ turistas ============ -->
+      <section class="bloco" id="b-turistas">
+        <header>
+          <h2>Pelos que chegam de férias</h2>
+        </header>
+        <p class="quando">É o único bloco que ora por quem não vai voltar — pela janela curta em que essa pessoa ainda está aqui. Para o verão, os feriados, a reunião de missões, ou antes de uma ação na praia.</p>
+
+        <div class="rezar">
+          <p class="tag">≈ 30 s &middot; ler em voz alta</p>
+          <p>Pai, hoje aterrissa em Faro mais gente do que cabe na nossa igreja inteira. Tu conheces cada um pelo nome. Eles vêm buscar sol e descanso; não deixa que levem só isso. Que ninguém pise nesta terra e vá embora igual. E se alguém tiver que falar de ti no balcão, na praia, na fila do aeroporto, que eu esteja pronto.</p>
+        </div>
+
+        <div class="rezar longa">
+          <p class="tag">≈ 80 s &middot; culto de domingo</p>
+          <p>Pai, obrigado por trazer o mundo até a nossa porta. A gente não precisou atravessar o mar: eles descem do avião e passam na nossa frente todos os dias. Abençoa quem chegou esta semana. O casal cansado, a família com criança pequena, o rapaz que veio só para beber e esquecer. Nenhum deles é um estorvo aqui; cada um é alguém que Tu trouxeste até esta cidade. Dá coragem aos irmãos que trabalham no hotel, no restaurante, na loja, no táxi. Que o cuidado deles com o cliente seja tão fora do normal que alguém pergunte o motivo. E lembra dos que vieram uma vez e ficaram, os que estão envelhecendo aqui longe de tudo o que conheciam. Não deixa que terminem a vida nesta praia sem te conhecer. Que todos voltem para casa diferentes do que chegaram.</p>
+        </div>
+
+        <div class="grupo">
+          <h3>Frases-semente</h3>
+          <ul class="sementes">
+            <li>Tu trouxeste o mundo até a nossa porta.</li>
+            <li>Que a passagem deles por aqui não seja neutra.</li>
+            <li>Vieram buscar descanso; deixa que encontrem paz de verdade.</li>
+            <li>Dá coragem a quem atende turista o dia inteiro.</li>
+            <li>Faz do balcão um lugar de encontro contigo.</li>
+            <li>Lembra dos que chegaram uma vez e nunca mais foram embora.</li>
+            <li>Que voltem para casa diferentes do que chegaram.</li>
+          </ul>
+        </div>
+
+        <div class="grupo">
+          <h3>Para orar com a Bíblia</h3>
+          <div class="versiculos">
+            <div class="v">
+              <p class="ref">Atos 17:26-27 <span>&middot; ARA</span></p>
+              <blockquote>havendo determinado os tempos previamente assinalados e os limites da sua habitação, para buscarem a Deus se, porventura, tateando, o possam achar, bem que não está longe de cada um de nós</blockquote>
+              <p class="como">É o versículo-chave deste bloco: «Pai, Tu marcaste o tempo e o lugar de cada um. Se essa pessoa está no Algarve esta semana, não foi por acaso. Faz com que ela te ache, mesmo tateando.»</p>
+            </div>
+            <div class="v">
+              <p class="ref">Hebreus 13:2 <span>&middot; ARC</span></p>
+              <blockquote>Não vos esqueçais da hospitalidade, porque por ela alguns, não o sabendo, hospedaram anjos.</blockquote>
+              <p class="como">Bom para começar em gratidão e virar o pedido para dentro: «Faz da nossa casa, do balcão e da mesa um lugar de acolhimento — que quem chega de fora seja tratado bem sem saber porquê.»</p>
+            </div>
+            <div class="v">
+              <p class="ref">1 Pedro 3:15 <span>&middot; ARC</span></p>
+              <blockquote>E estai sempre preparados para responder com mansidão e temor a qualquer que vos pedir a razão da esperança que há em vós.</blockquote>
+              <p class="como">Vire o pedido para os irmãos que trabalham no turismo: «Que o jeito deles atender levante a pergunta, e que a resposta saia com mansidão, sem discurso e sem medo.»</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="quando"><b>Como usar:</b> comece dizendo um lugar com nome — o aeroporto de Faro, a Praia da Rocha, o restaurante onde o seu irmão trabalha. Um lugar concreto tira a oração do genérico e já entrega a primeira frase pronta na sua boca.</p>
+      </section>
+
     </main>
   </div>
+
+  <!-- ============ exercício diário ============ -->
+  <section class="exercicio" id="exercicio">
+    <p class="eyebrow">Exercício diário</p>
+    <h2>Dez minutos, em voz alta</h2>
+    <p class="intro">Cinco dias por semana, sempre no mesmo sítio, sempre com a mesma forma. Em voz alta é a parte que não se negoceia: rezar num sussurro é a vergonha a negociar contigo, e treina o defeito em vez do contrário. Os dez blocos deste cartão rodam pelos dias — nunca se ora por tudo num dia, ora-se por tudo dentro de um ciclo.</p>
+
+    <p class="gatilho"><span>A hora é um lugar</span> Carro estacionado, motor desligado, antes de saíres. É a única janela do teu dia onde podes falar em volume normal sem constranger ninguém. Se trabalhares em casa, o carro na garagem à mesma. Uma única recuperação: 13h, no mesmo carro. Duas opções são plano; três são negociação.</p>
+
+    <div class="crono">
+      <div class="fase">
+        <p class="fase-cab"><span class="fase-n">Fase 1</span><span class="fase-t">Ler</span><span class="fase-s">0:00 — 3:00</span></p>
+        <ol class="segs">
+          <li><span class="s">60 s</span><span class="d"><b>Um salmo, de pé, em voz alta.</b> O mesmo durante um mês. Não é aquecimento espiritual — é calibração de voz.</span></li>
+          <li><span class="s">30 s</span><span class="d"><b>Abertura e gratidão.</b> Uma linha fixa: «Pai, obrigado por…» e um facto concreto de ontem. Um só.</span></li>
+          <li><span class="s">90 s</span><span class="d"><b>A oração curta do bloco de hoje</b>, lida do cartão. Nos dias de dois blocos, uma e depois a outra.</span></li>
+        </ol>
+      </div>
+      <div class="fase">
+        <p class="fase-cab"><span class="fase-n">Fase 2</span><span class="fase-t">Nomes</span><span class="fase-s">3:00 — 7:00</span></p>
+        <ol class="segs">
+          <li><span class="s">120 s</span><span class="d"><b>Os dez nomes.</b> Nome e um verbo, nada mais: «Ana — cura.» Não descrevas a situação; Deus já a sabe.</span></li>
+          <li><span class="s">120 s</span><span class="d"><b>As frases-semente do bloco de hoje</b>, ditas devagar. Podes repetir a mesma três vezes.</span></li>
+        </ol>
+      </div>
+      <div class="fase">
+        <p class="fase-cab"><span class="fase-n">Fase 3</span><span class="fase-t">Falar</span><span class="fase-s">7:00 — 10:00</span></p>
+        <ol class="segs">
+          <li><span class="s">150 s</span><span class="d"><b>Sem cartão.</b> Ora sobre o tema de hoje pelas tuas palavras. Este é o segmento que treina o que te falta — ler de um papel sozinho não transfere para a igreja. Nas primeiras semanas, apoia-te nas sementes.</span></li>
+          <li><span class="s">30 s</span><span class="d"><b>A coleta</b>, sempre a mesma, palavra por palavra. Deve ficar decorada: é ela que sai da tua boca quando te pedirem para encerrar uma reunião.</span></li>
+        </ol>
+      </div>
+      <p class="soma"><span>Total</span> 600 s <span class="obs">Três vibrações no temporizador — 3:00, 7:00, 10:00. Telemóvel virado para baixo, som desligado.</span></p>
+    </div>
+
+    <div class="coleta">
+      <p class="tag">A coleta &middot; decorar</p>
+      <p>Pai, perdoa o que eu fiz e o que eu deixei de fazer. Faz o que eu te pedi, do teu jeito e no teu tempo. E dá-me hoje coragem para falar de ti. Em nome de Jesus, amém.</p>
+    </div>
+
+    <h3 class="sub">A semana</h3>
+    <ol class="semana">
+      <li><span class="dia">Segunda</span><span class="bl">Pela minha mente &middot; Antes de levantar a voz</span><span class="pq">Começar por dentro. A semana abre com a tua cabeça, não com o mundo.</span></li>
+      <li><span class="dia">Terça</span><span class="bl">Pelos meus irmãos</span><span class="pq">O dia dos nomes. A fase 2 vale por duas passagens da lista, mais devagar.</span></li>
+      <li><span class="dia">Quarta</span><span class="bl">Pela juventude daqui &middot; Pela nova geração</span><span class="pq">A mesma geração vista de dois lados: a situação real e o que Deus quer levantar nela.</span></li>
+      <li><span class="dia">Quinta</span><span class="bl">Por um avivamento na igreja daqui &middot; Abrir e encerrar</span><span class="pq">A casa. E o bloco de abertura é o que vais precisar de saber de cor.</span></li>
+      <li><span class="dia">Sexta</span><span class="bl">Autoridade espiritual &middot; Um mover no Algarve &middot; Pelos que chegam</span><span class="pq">A terra e quem chega nela — no Algarve é a mesma coisa. Sexta é a véspera dos voos, não o depois.</span></li>
+      <li class="fds"><span class="dia">Fim de semana</span><span class="bl">Modo mínimo</span><span class="pq">Sem carro, sem hora, sem registo. Três minutos e está feito.</span></li>
+    </ol>
+
+    <div class="regras-ex">
+      <div class="regra-ex">
+        <p class="rt">A rotação é por dia, nunca sequencial</p>
+        <p>Quarta é sempre quarta, mesmo que tenhas falhado às três quartas anteriores. <b>Não se recupera nada, nunca.</b> Decidir à porta do hábito é como se abandona um hábito.</p>
+      </div>
+      <div class="regra-ex">
+        <p class="rt">Dez linhas, e só dez</p>
+        <p>A lista de nomes escreve-se <b>uma vez</b>, em papel, com dez linhas. Os mesmos durante um mês. Nome novo diz-se em voz alta na hora, sem escrever. Se quiser ficar, substitui alguém no dia 1.</p>
+      </div>
+      <div class="regra-ex">
+        <p class="rt">Sem corrente e sem contagem</p>
+        <p>Nada de «dia 14 seguido». Uma corrente numerada é uma máquina de desistir no dia a seguir a perdê-la. A contagem é semanal: <b>4 de 5 é boa semana.</b></p>
+      </div>
+    </div>
+
+    <div class="minimo">
+      <p class="tag">Dia mau &middot; 3 min &middot; conta como feito</p>
+      <p>60 s de salmo em voz alta. 60 s dos dez nomes. 60 s da coleta. Acabou.</p>
+      <p class="obs">Este é o ponto mais importante de tudo isto. Dez minutos morrem mais depressa do que três porque não têm piso: no dia mau a escolha passa a ser 600 s ou nada, e nada ganha sempre. Com piso, o dia mau produz uma repetição em vez de uma quebra.</p>
+    </div>
+
+    <p class="rodape-ex"><b>Quando falhares</b> — e vais — não recuperes, não compenses, não comeces de novo na segunda. Faz o dia de hoje, no bloco de hoje. Uma falha é um dia; duas falhas seguidas é que são um padrão, e só aí vale a pena olhar para o gatilho.</p>
+    <p class="rodape-ex"><b>Uma vez por mês</b> troca o salmo de abertura. <b>Às sextas</b>, 60 s a ler em voz alta os pedidos com resposta datada do mês passado — é a prova acumulada que impede isto de virar recitação. Novidade não impede; evidência impede.</p>
+    <p class="rodape-ex aviso"><b>A lista de nomes não entra aqui.</b> São dados de pessoas reais. Papel, ou ficheiro no teu computador — nunca num repositório nem em folha partilhada. Primeiro nome e inicial bastam.</p>
+  </section>
 
   <!-- ============ escada ============ -->
   <section class="escada" id="escada">
@@ -798,7 +1283,7 @@ h3{
   </section>
 
   <footer class="colofao">
-    <p>Traduções: <code>ARA</code> Almeida Revista e Atualizada &middot; <code>ARC</code> Almeida Revista e Corrigida. As dezoito referências deste cartão foram conferidas texto a texto contra a tradução indicada.</p>
+    <p>Traduções: <code>ARA</code> Almeida Revista e Atualizada &middot; <code>ARC</code> Almeida Revista e Corrigida. As trinta referências deste cartão foram conferidas texto a texto contra a tradução indicada.</p>
     <p>Os degraus marcados ficam guardados apenas neste navegador — não saem daqui e não são enviados a ninguém. Para imprimir, use <code>Ctrl</code>+<code>P</code>: a versão impressa traz só as orações curtas, uma por bloco.</p>
   </footer>
 
