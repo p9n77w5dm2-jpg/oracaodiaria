@@ -22,8 +22,9 @@ img{max-width:100%}
 [hidden]{display:none!important}
 </style>
 <title>Antes de Levantar a Voz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link id="fontes" rel="stylesheet" media="print" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=Archivo:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* ============ cal, azulejo, ocre da falésia ============ */
 :root{
@@ -31,8 +32,8 @@ img{max-width:100%}
   --papel:#FBFAF8;
   --tinta:#16222D;
   --azul:#1B4F8F;
-  --ocre:#A8682A;
-  --neutro:#697782;
+  --ocre:#985C24;
+  --neutro:#5F6D79;
   --linha:#DAD8D0;
   --lift:0 1px 2px rgba(22,34,45,.05), 0 6px 18px -10px rgba(22,34,45,.16);
   --serif:"Spectral", Georgia, "Times New Roman", serif;
@@ -121,8 +122,7 @@ h3{
   display:flex;
   flex-direction:column;
   gap:1.5rem;
-  padding-bottom:2rem;
-  border-bottom:1px solid var(--linha);
+  padding-bottom:.5rem;
 }
 .standfirst{
   font-family:var(--serif);
@@ -159,8 +159,16 @@ h3{
   gap:2.5rem;
   margin-top:2.5rem;
 }
+/* no telemóvel o índice desce para depois das orações; aos 62rem volta a barra lateral */
+.cols > .rail{order:2}
+.cols > .blocos{order:1}
+@media (max-width:61.999rem){
+  .rail a{min-height:44px; align-items:center; padding:.55rem .75rem}
+}
 @media (min-width:62rem){
   .cols{grid-template-columns:11.5rem minmax(0,1fr); gap:3.5rem}
+  .cols > .rail{order:0}
+  .cols > .blocos{order:0}
 }
 
 /* ============ índice ============ */
@@ -253,7 +261,7 @@ h3{
   padding:.15rem 0 .15rem 1.5rem;
 }
 .rezar.longa .tag{color:var(--neutro)}
-.rezar.longa p{font-size:1.0625rem; line-height:1.68; max-width:34rem}
+.rezar.longa p{font-size:1.1875rem; line-height:1.66; max-width:32rem}
 
 /* sementes: lista plana com marcador ocre pendurado */
 .sementes{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.55rem}
@@ -554,11 +562,11 @@ h3{
   display:flex; flex-direction:column; gap:.5rem;
 }
 .repreensoes li{
-  font-family:var(--serif); font-size:1.0625rem; line-height:1.55;
-  color:var(--tinta); max-width:33rem;
+  font-family:var(--serif); font-size:1.1875rem; line-height:1.66;
+  color:var(--tinta); max-width:32rem;
 }
 .rezar.longa .virada{
-  font-family:var(--serif); font-style:italic; color:var(--azul);
+  font-family:var(--serif); font-size:1.1875rem; font-style:italic; color:var(--azul);
 }
 .guardas{
   border:1px solid var(--linha); border-radius:2px;
@@ -577,25 +585,41 @@ h3{
 .guardas li b{color:var(--tinta); font-weight:600}
 .guardas .obs{margin:0; font-size:.8125rem; line-height:1.5; color:var(--neutro)}
 
+/* telemóvel: molduras mais estreitas devolvem medida ao teleponto */
+@media (max-width:30rem){
+  .wrap{padding:1.75rem 1rem 3rem}
+  .masthead{gap:1.1rem}
+  .calibragem{margin-top:1rem; padding:1.1rem 0 1.25rem; gap:1.35rem}
+  .rezar{padding:1.15rem 1.05rem 1.2rem}
+  .rezar.longa{padding:.15rem 0 .15rem 1.05rem}
+}
+
 @media (prefers-reduced-motion:reduce){
   *{animation:none !important; transition:none !important}
 }
 
 /* ============ impressão: cartão dobrável ============ */
 @media print{
-  :root{
+  :root,
+  :root:not([data-theme="light"]),
+  :root[data-theme="dark"],
+  :root[data-theme="light"]{
+    color-scheme:light;
     --cal:#fff; --papel:#fff; --tinta:#000; --azul:#000;
     --ocre:#444; --neutro:#444; --linha:#bbb; --lift:none;
   }
   body{font-size:10.5pt}
   .wrap{max-width:none; padding:0}
   .rail, .escada, .colofao, .regras-ex, .rodape-ex{display:none}
-  .exercicio{break-before:page}
+  .quando, .grupo, .exercicio, .guardas{display:none}
   .crono, .semana, .coleta, .minimo{break-inside:avoid; page-break-inside:avoid}
   .coleta{border-left:2px solid #000; box-shadow:none}
   .cols{display:block; margin-top:1.25rem}
   .blocos{gap:1.5rem}
-  .bloco{break-inside:avoid; page-break-inside:avoid}
+  .bloco{break-inside:auto; page-break-inside:auto}
+  .bloco > header{break-after:avoid; page-break-after:avoid}
+  .rezar{break-inside:avoid; page-break-inside:avoid}
+  .blocos{gap:1.1rem}
   .rezar{border-left:2px solid #000; box-shadow:none; padding:.5rem 0 .5rem .75rem}
   .rezar p{font-size:12pt}
   .rezar.longa{display:none}
@@ -613,7 +637,7 @@ h3{
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="wrap" lang="pt-BR">
 
   <header class="masthead">
     <div>
@@ -624,6 +648,7 @@ h3{
   </header>
 
   <!-- ============ calibragem: lê-se todas as vezes ============ -->
+  <main>
   <section class="calibragem" id="calibragem">
     <div class="cal-regras">
       <h3>Três regras</h3>
@@ -696,7 +721,7 @@ h3{
       </div>
     </nav>
 
-    <main class="blocos">
+    <div class="blocos">
 
       <!-- ============ 1 ============ -->
       <section class="bloco" id="b-antes">
@@ -1256,7 +1281,7 @@ h3{
         <p class="quando"><b>Como usar:</b> comece dizendo um lugar com nome — o aeroporto de Faro, a Praia da Rocha, o restaurante onde o seu irmão trabalha. Um lugar concreto tira a oração do genérico e já entrega a primeira frase pronta na sua boca.</p>
       </section>
 
-    </main>
+    </div>
   </div>
 
   <!-- ============ exercício diário ============ -->
@@ -1348,6 +1373,8 @@ h3{
     </ol>
   </section>
 
+  </main>
+
   <footer class="colofao">
     <p>Traduções: <code>ARA</code> Almeida Revista e Atualizada &middot; <code>ARC</code> Almeida Revista e Corrigida. As trinta referências deste cartão foram conferidas texto a texto contra a tradução indicada.</p>
     <p>Os degraus marcados ficam guardados apenas neste navegador — não saem daqui e não são enviados a ninguém. Para imprimir, use <code>Ctrl</code>+<code>P</code>: a versão impressa traz só as orações curtas, uma por bloco.</p>
@@ -1357,6 +1384,11 @@ h3{
 
 <script>
 (function(){
+  // as fontes carregam com media="print" para nao bloquearem o primeiro pixel;
+  // assim que a folha chega, passa a valer para o ecra. Sem JS, ficam os fallbacks.
+  var f = document.getElementById("fontes");
+  if (f) { if (f.sheet) { f.media = "all"; } else { f.addEventListener("load", function(){ f.media = "all"; }); } }
+
   var CHAVE = "escada-oracao-v1";
   var boxes = Array.prototype.slice.call(document.querySelectorAll("#degraus input"));
   function ler(){
