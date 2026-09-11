@@ -49,7 +49,7 @@ img{max-width:100%}
     --ocre:#D89E60;
     --neutro:#93A1AE;
     --linha:#28343F;
-    --lift:0 1px 2px rgba(0,0,0,.4), 0 8px 22px -12px rgba(0,0,0,.6);
+    --lift:0 0 0 1px #3A4653, 0 1px 2px rgba(0,0,0,.5), 0 10px 26px -14px rgba(0,0,0,.85);
   }
 }
 :root[data-theme="dark"]{
@@ -60,7 +60,7 @@ img{max-width:100%}
   --ocre:#D89E60;
   --neutro:#93A1AE;
   --linha:#28343F;
-  --lift:0 1px 2px rgba(0,0,0,.4), 0 8px 22px -12px rgba(0,0,0,.6);
+  --lift:0 0 0 1px #3A4653, 0 1px 2px rgba(0,0,0,.5), 0 10px 26px -14px rgba(0,0,0,.85);
 }
 
 *{box-sizing:border-box}
@@ -134,25 +134,6 @@ h3{
 }
 .standfirst em{color:var(--neutro); font-style:italic}
 
-/* três regras — rótulo + linha, sem caixas */
-.regras{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(13rem, 1fr));
-  gap:1.5rem 2rem;
-  margin:0;
-}
-.regra{display:flex; flex-direction:column; gap:.3rem}
-.regra dt{
-  font-family:var(--mono);
-  font-size:.688rem;
-  font-weight:500;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  color:var(--ocre);
-}
-.regra dd{margin:0; font-size:.875rem; line-height:1.5; color:var(--neutro)}
-.regra dd b{color:var(--tinta); font-weight:500}
-
 .cols{
   display:grid;
   grid-template-columns:1fr;
@@ -191,7 +172,7 @@ h3{
   font-size:.8125rem;
   line-height:1.35;
   padding:.4rem .6rem;
-  border:1px solid var(--linha);
+  border:1px solid color-mix(in srgb, var(--neutro) 80%, var(--cal));
   border-radius:2px;
 }
 @media (min-width:62rem){
@@ -208,6 +189,7 @@ h3{
 /* ============ blocos de oração ============ */
 .blocos{display:flex; flex-direction:column; gap:3.25rem}
 .bloco{display:flex; flex-direction:column; gap:1.15rem; scroll-margin-top:1.5rem}
+.calibragem, .exercicio, .escada{scroll-margin-top:1.5rem}
 .bloco > header{
   display:flex;
   align-items:baseline;
@@ -303,14 +285,17 @@ h3{
 .v blockquote{
   font-family:var(--serif);
   font-style:italic;
-  font-size:1rem;
-  line-height:1.6;
+  font-size:1.0625rem;
+  line-height:1.65;
   margin:0;
+  max-width:30rem;
   color:var(--tinta);
 }
-.v .como{font-size:.8125rem; line-height:1.5; color:var(--neutro); margin:0}
+.v .como{font-size:.8125rem; line-height:1.5; color:var(--neutro); margin:0; max-width:32rem}
 
 .grupo{display:flex; flex-direction:column; gap:.7rem}
+/* versalete de SENHOR: encolher o glifo pede algum peso de volta */
+.vs{font-size:.86em; letter-spacing:.02em; font-weight:500}
 
 /* ============ escada ============ */
 .escada{margin-top:3.5rem; padding-top:2rem; border-top:1px solid var(--linha)}
@@ -370,7 +355,7 @@ h3{
 .estranho li::before{
   content:"×";
   position:absolute; left:0; top:-.05em;
-  font-family:var(--mono); font-size:.9rem; color:var(--ocre);
+  font-family:var(--mono); font-size:.875rem; color:var(--ocre);
 }
 .estranho li b{font-weight:600}
 
@@ -382,7 +367,7 @@ h3{
   font-size:.75rem; line-height:1.55; color:var(--neutro);
   max-width:38rem;
 }
-.colofao code{font-family:var(--mono); font-size:.7rem; color:var(--azul)}
+.colofao code{font-family:var(--mono); font-size:.688rem; color:var(--azul)}
 
 /* ============ banda de calibragem: o que se lê todas as vezes ============ */
 .calibragem{
@@ -421,17 +406,14 @@ h3{
   list-style:none; margin:0; padding:0;
   display:grid; grid-template-columns:1fr; gap:.5rem;
 }
-@media (min-width:44rem){
-  .cal-lista{grid-template-columns:repeat(2,minmax(0,1fr)); gap:.5rem 1.75rem}
-}
 .cal-lista li{
   position:relative; padding-left:1.3rem;
   font-size:.875rem; line-height:1.45; color:var(--tinta);
 }
 .cal-lista li::before{
-  content:"\00D7";
+  content:"\00D7" / "";  /* alt vazio: o marcador e decoracao */
   position:absolute; left:0; top:-.02em;
-  font-family:var(--mono); font-size:.95rem; color:var(--ocre);
+  font-family:var(--mono); font-size:.9375rem; color:var(--ocre);
 }
 .cal-nota{
   grid-column:1/-1; margin:.35rem 0 0;
@@ -441,7 +423,14 @@ h3{
 /* ============ índice em grupos ============ */
 .rail{display:flex; flex-direction:column; gap:1.35rem}
 .rgrupo{display:flex; flex-direction:column; gap:.5rem}
-.rgrupo h3{font-size:.688rem; letter-spacing:.11em; color:var(--ocre)}
+.rgrupo .rot-nav{
+  font-family:var(--sans); font-weight:600; font-size:.688rem;
+  letter-spacing:.11em; text-transform:uppercase; color:var(--ocre); margin:0 0 .85rem;
+}
+.calibragem .rot{
+  font-family:var(--sans); font-weight:600; font-size:.75rem;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--neutro); margin:0 0 .8rem;
+}
 
 /* ============ exercício diário ============ */
 .exercicio{margin-top:3.5rem; padding-top:2rem; border-top:1px solid var(--linha)}
@@ -599,6 +588,8 @@ h3{
 }
 
 /* ============ impressão: cartão dobrável ============ */
+@page{margin:14mm 13mm}
+
 @media print{
   :root,
   :root:not([data-theme="light"]),
@@ -606,7 +597,7 @@ h3{
   :root[data-theme="light"]{
     color-scheme:light;
     --cal:#fff; --papel:#fff; --tinta:#000; --azul:#000;
-    --ocre:#444; --neutro:#444; --linha:#bbb; --lift:none;
+    --ocre:#6B4A22; --neutro:#3A3A3A; --linha:#8C8C8C; --lift:none;
   }
   body{font-size:10.5pt}
   .wrap{max-width:none; padding:0}
@@ -621,7 +612,14 @@ h3{
   .rezar{break-inside:avoid; page-break-inside:avoid}
   .blocos{gap:1.1rem}
   .rezar{border-left:2px solid #000; box-shadow:none; padding:.5rem 0 .5rem .75rem}
-  .rezar p{font-size:12pt}
+  .rezar p{font-size:12pt; line-height:1.5}
+  .rezar .tag{font-size:7.5pt}
+  .standfirst{font-size:10pt; line-height:1.45}
+  h2{font-size:13pt}
+  .cal-lista li, .cal-regras dd{font-size:9.5pt; line-height:1.35}
+  .cal-regras dt, .calibragem .rot{font-size:8pt}
+  .cal-estranho h2{font-size:12pt}
+  .cal-estranho .alivio{font-size:10pt; line-height:1.4}
   .rezar.longa{display:none}
   .versiculos{display:none}
   h1{font-size:20pt}
@@ -632,7 +630,7 @@ h3{
   .cal-estranho .alivio{font-size:10pt}
   .cal-lista{grid-template-columns:1fr 1fr}
   .cal-lista li, .cal-regras dd{font-size:8.5pt}
-  .cal-nota{display:none}
+  .cal-nota{font-size:8pt; line-height:1.35; margin:.25rem 0 0; max-width:none}
 }
 </style>
 </head>
@@ -651,7 +649,7 @@ h3{
   <main>
   <section class="calibragem" id="calibragem">
     <div class="cal-regras">
-      <h3>Três regras</h3>
+      <h2 class="rot">Três regras</h2>
       <dl>
         <div>
           <dt>A forma, não a frase</dt>
@@ -688,24 +686,24 @@ h3{
 
     <nav class="rail" aria-label="Índice dos blocos">
       <div class="rgrupo">
-        <h3>Para começar</h3>
-        <ol>
+        <p class="rot-nav" id="rg-1">Para começar</p>
+        <ol aria-labelledby="rg-1">
           <li><a href="#b-antes">Antes de levantar a voz <span class="t">10 s</span></a></li>
           <li><a href="#b-reuniao">Abrir e encerrar <span class="t">15 s</span></a></li>
           <li><a href="#b-mente">Pela minha mente <span class="t">20 s</span></a></li>
         </ol>
       </div>
       <div class="rgrupo">
-        <h3>Pelos outros</h3>
-        <ol>
+        <p class="rot-nav" id="rg-2">Pelos outros</p>
+        <ol aria-labelledby="rg-2">
           <li><a href="#b-irmaos">Pelos meus irmãos <span class="t">30 s</span></a></li>
           <li><a href="#b-juventude">Pela juventude daqui <span class="t">25 s</span></a></li>
           <li><a href="#b-geracao">Pela nova geração <span class="t">30 s</span></a></li>
         </ol>
       </div>
       <div class="rgrupo">
-        <h3>Por esta terra</h3>
-        <ol>
+        <p class="rot-nav" id="rg-3">Por esta terra</p>
+        <ol aria-labelledby="rg-3">
           <li><a href="#b-avivamento">Por um avivamento aqui <span class="t">30 s</span></a></li>
           <li><a href="#b-mover">Por um mover no Algarve <span class="t">30 s</span></a></li>
           <li><a href="#b-autoridade">Autoridade sobre esta terra <span class="t">30 s</span></a></li>
@@ -713,8 +711,8 @@ h3{
         </ol>
       </div>
       <div class="rgrupo">
-        <h3>Prática</h3>
-        <ol>
+        <p class="rot-nav" id="rg-4">Prática</p>
+        <ol aria-labelledby="rg-4">
           <li><a href="#exercicio">Dez minutos por dia <span class="t">10 min</span></a></li>
           <li><a href="#escada">A escada <span class="t">5 degraus</span></a></li>
         </ol>
@@ -758,12 +756,12 @@ h3{
           <div class="versiculos">
             <div class="v">
               <p class="ref">Provérbios 29:25 <span>&middot; ARC</span></p>
-              <blockquote>O temor do homem armará laços, mas o que confia no S<span style="font-size:.85em">ENHOR</span> será posto em alto retiro.</blockquote>
+              <blockquote>O temor do homem armará laços, mas o que confia no S<span class="vs">ENHOR</span> será posto em alto retiro.</blockquote>
               <p class="como">Diga a Deus, em silêncio, que o medo do que os irmãos vão pensar é uma armadilha — e que você escolhe confiar Nele agora.</p>
             </div>
             <div class="v">
               <p class="ref">Salmos 19:14 <span>&middot; ARC</span></p>
-              <blockquote>Sejam agradáveis as palavras da minha boca e a meditação do meu coração perante a tua face, S<span style="font-size:.85em">ENHOR</span>, Rocha minha e Libertador meu!</blockquote>
+              <blockquote>Sejam agradáveis as palavras da minha boca e a meditação do meu coração perante a tua face, S<span class="vs">ENHOR</span>, Rocha minha e Libertador meu!</blockquote>
               <p class="como">Peça que as suas palavras agradem a Ele, e não à sala. Isso troca o destinatário da oração antes de você abrir a boca.</p>
             </div>
             <div class="v">
@@ -819,7 +817,7 @@ h3{
             </div>
             <div class="v">
               <p class="ref">Números 6:24-26 <span>&middot; ARC</span></p>
-              <blockquote>O S<span style="font-size:.85em">ENHOR</span> te abençoe e te guarde; o S<span style="font-size:.85em">ENHOR</span> faça resplandecer o seu rosto sobre ti e tenha misericórdia de ti; o S<span style="font-size:.85em">ENHOR</span> sobre ti levante o seu rosto e te dê a paz.</blockquote>
+              <blockquote>O S<span class="vs">ENHOR</span> te abençoe e te guarde; o S<span class="vs">ENHOR</span> faça resplandecer o seu rosto sobre ti e tenha misericórdia de ti; o S<span class="vs">ENHOR</span> sobre ti levante o seu rosto e te dê a paz.</blockquote>
               <p class="como">No encerramento, transforme em pedido para os que saem: «Senhor, abençoa e guarda cada um que sai daqui, e dá a tua paz.»</p>
             </div>
           </div>
@@ -971,7 +969,7 @@ h3{
           <div class="versiculos">
             <div class="v">
               <p class="ref">Salmos 127:1 <span>&middot; ARA</span></p>
-              <blockquote>Se o S<span style="font-size:.85em">ENHOR</span> não edificar a casa, em vão trabalham os que a edificam; se o S<span style="font-size:.85em">ENHOR</span> não guardar a cidade, em vão vigia a sentinela.</blockquote>
+              <blockquote>Se o S<span class="vs">ENHOR</span> não edificar a casa, em vão trabalham os que a edificam; se o S<span class="vs">ENHOR</span> não guardar a cidade, em vão vigia a sentinela.</blockquote>
               <p class="como">Peça que Deus edifique a vida desses jovens — casa, trabalho e futuro que não dependam só do esforço deles.</p>
             </div>
             <div class="v">
@@ -1365,11 +1363,11 @@ h3{
     <h2>A escada, um degrau por semana</h2>
     <p>A vergonha não some antes: ela some depois da repetição. Suba um degrau por semana e não pule nenhum — cada um deles é confortável se você já fez o anterior. Marque quando um degrau já estiver dado.</p>
     <ol class="degraus" id="degraus">
-      <li><label><input type="checkbox" data-d="1"><span class="n">01</span><span class="d">Orar em voz alta sozinho<small>No carro, andando na rua. Só para se acostumar a ouvir a própria voz orando.</small></span></label></li>
-      <li><label><input type="checkbox" data-d="2"><span class="n">02</span><span class="d">Uma frase em voz alta com alguém<small>Com a esposa, com um amigo. Uma frase, não mais.</small></span></label></li>
-      <li><label><input type="checkbox" data-d="3"><span class="n">03</span><span class="d">No grupo pequeno, um pedido só<small>Ofereça-se para orar por um item específico — não pela reunião inteira.</small></span></label></li>
-      <li><label><input type="checkbox" data-d="4"><span class="n">04</span><span class="d">Na reunião grande, uma frase<small>Uma frase-semente deste cartão. Depois pare. Isso já é oração.</small></span></label></li>
-      <li><label><input type="checkbox" data-d="5"><span class="n">05</span><span class="d">Abrir ou encerrar uma reunião<small>O bloco 2 deste cartão, decorando só a primeira frase.</small></span></label></li>
+      <li><label><input type="checkbox" autocomplete="off" data-d="1"><span class="n">01</span><span class="d">Orar em voz alta sozinho<small>No carro, andando na rua. Só para se acostumar a ouvir a própria voz orando.</small></span></label></li>
+      <li><label><input type="checkbox" autocomplete="off" data-d="2"><span class="n">02</span><span class="d">Uma frase em voz alta com alguém<small>Com a esposa, com um amigo. Uma frase, não mais.</small></span></label></li>
+      <li><label><input type="checkbox" autocomplete="off" data-d="3"><span class="n">03</span><span class="d">No grupo pequeno, um pedido só<small>Ofereça-se para orar por um item específico — não pela reunião inteira.</small></span></label></li>
+      <li><label><input type="checkbox" autocomplete="off" data-d="4"><span class="n">04</span><span class="d">Na reunião grande, uma frase<small>Uma frase-semente deste cartão. Depois pare. Isso já é oração.</small></span></label></li>
+      <li><label><input type="checkbox" autocomplete="off" data-d="5"><span class="n">05</span><span class="d">Abrir ou encerrar uma reunião<small>O bloco 2 deste cartão, decorando só a primeira frase.</small></span></label></li>
     </ol>
   </section>
 
@@ -1401,7 +1399,7 @@ h3{
   }
   var feitos = ler();
   boxes.forEach(function(b){
-    if (feitos.indexOf(b.dataset.d) !== -1) b.checked = true;
+    b.checked = feitos.indexOf(b.dataset.d) !== -1;
     b.addEventListener("change", function(){
       var atual = boxes.filter(function(x){ return x.checked; })
                        .map(function(x){ return x.dataset.d; });
