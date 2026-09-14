@@ -551,6 +551,46 @@ h3{
 .guardas li b{color:var(--tinta); font-weight:600}
 .guardas .obs{margin:0; font-size:.8125rem; line-height:1.5; color:var(--neutro)}
 
+/* ============ bloco da primeira vez ============ */
+.bloco > header .marca{
+  margin:0; font-family:var(--mono); font-size:.688rem; font-weight:500;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--ocre);
+  font-variant-numeric:tabular-nums;
+}
+
+/* a leitura: palavra que nao e dele — por isso azul, e nao ocre */
+.leitura{
+  background:var(--papel); box-shadow:var(--lift);
+  border-left:3px solid var(--azul); border-radius:2px;
+  padding:1.35rem 1.5rem 1.4rem;
+  display:flex; flex-direction:column; gap:.85rem;
+}
+.leitura .tag{
+  display:flex; align-items:center; gap:.55rem; margin:0;
+  font-family:var(--mono); font-size:.688rem; font-weight:500;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--azul);
+  font-variant-numeric:tabular-nums;
+}
+.leitura .tag::after{content:""; flex:1; height:1px; background:var(--linha)}
+.leitura p.txt{
+  margin:0; font-family:var(--serif); font-size:1.3125rem; line-height:1.62; max-width:31rem;
+}
+.leitura p.txt.cont{font-size:1.1875rem; color:var(--neutro)}
+.leitura .fonte{margin:0; font-size:.75rem; line-height:1.55; color:var(--neutro); max-width:32rem}
+.leitura .fonte b{color:var(--tinta); font-weight:600}
+
+/* marca de respiracao: onde parar para tomar ar */
+.pausa{
+  display:inline-block; width:1px; height:.82em; margin:0 .4em -.02em .2em;
+  background:var(--ocre); opacity:.6;
+}
+
+/* ancoras: a frase dele ao lado do texto que ela ja era */
+.ancoras .frase{
+  margin:0 0 .35rem; font-family:var(--serif); font-style:italic;
+  font-size:1.0625rem; line-height:1.5; color:var(--azul); max-width:32rem;
+}
+
 /* telemóvel: molduras mais estreitas devolvem medida ao teleponto */
 @media (max-width:30rem){
   .wrap{padding:1.75rem 1rem 3rem}
@@ -591,6 +631,16 @@ h3{
   .rezar{border-left:2px solid #000; box-shadow:none; padding:.5rem 0 .5rem .75rem}
   .rezar p{font-size:12pt; line-height:1.5}
   .rezar .tag{font-size:7.5pt}
+  .leitura{
+    border-left:2px solid #000; box-shadow:none; padding:.5rem 0 .5rem .75rem;
+    break-inside:avoid; page-break-inside:avoid;
+  }
+  .leitura p.txt{font-size:12pt; line-height:1.5}
+  .leitura p.txt.cont{font-size:11pt; color:#000}
+  .leitura .tag{font-size:7.5pt}
+  .leitura .fonte{font-size:7.5pt}
+  .pausa{background:#000; opacity:1}
+  .bloco > header .marca{font-size:7.5pt}
   .standfirst{font-size:10pt; line-height:1.45}
   h2{font-size:13pt}
   .cal-lista li, .cal-regras dd{font-size:9.5pt; line-height:1.35}
@@ -618,7 +668,7 @@ h3{
       <p class="eyebrow">Cartão de bolso &middot; Portimão, Algarve</p>
       <h1>Antes de levantar a voz</h1>
     </div>
-    <p class="standfirst">Dez blocos para orar em voz alta na igreja sem o peso de improvisar, e dez minutos por dia para treinar. A forma é decorada, o conteúdo é seu. <em>Comece pelo primeiro bloco — é o que destrava o resto.</em></p>
+    <p class="standfirst">Onze blocos para orar em voz alta na igreja sem o peso de improvisar, e dez minutos por dia para treinar. A forma é decorada, o conteúdo é seu. <em>O primeiro bloco é a oração que já está marcada — leia-o inteiro antes do dia.</em></p>
   </header>
 
   <!-- ============ calibragem: lê-se todas as vezes ============ -->
@@ -662,6 +712,12 @@ h3{
 
     <nav class="rail" aria-label="Índice dos blocos">
       <div class="rgrupo">
+        <p class="rot-nav" id="rg-0">A primeira vez</p>
+        <ol aria-labelledby="rg-0">
+          <li><a href="#b-primeira">A minha primeira oração <span class="t">30 s</span></a></li>
+        </ol>
+      </div>
+      <div class="rgrupo">
         <p class="rot-nav" id="rg-1">Para começar</p>
         <ol aria-labelledby="rg-1">
           <li><a href="#b-antes">Antes de levantar a voz <span class="t">10 s</span></a></li>
@@ -697,7 +753,68 @@ h3{
 
     <div class="blocos">
 
-      <!-- ============ 1 ============ -->
+<!-- ============ 0 &middot; a primeira vez ============ -->
+      <section class="bloco" id="b-primeira">
+        <header>
+          <h2>A minha primeira oração</h2>
+          <p class="marca">≈ 30 s no total</p>
+        </header>
+        <div class="leitura">
+          <p class="tag">1 &middot; a leitura &middot; ≈ 12 s</p>
+          <p class="txt">Bendiga ao S<span class="vs">ENHOR</span>, ó minha alma! <span class="pausa" aria-hidden="true"></span>S<span class="vs">ENHOR</span>, meu Deus, tu és tão grandioso! <span class="pausa" aria-hidden="true"></span>Estás vestido de majestade e esplendor!</p>
+          <p class="txt cont">Envolto em luz como em uma veste, ele estende os céus como uma tenda.</p>
+          <p class="fonte">Salmos 104:1 &middot; NVI — o versículo 2, em cinzento, é opcional.</p>
+        </div>
+
+        <div class="rezar">
+          <p class="tag">2 &middot; a oração &middot; ≈ 15 s</p>
+          <p>Senhor, nós pedimos para que o Senhor abra os nossos olhos, <span class="pausa" aria-hidden="true"></span>para que possamos contemplar a tua glória e a beleza da tua santidade. <span class="pausa" aria-hidden="true"></span>Revela-nos, Senhor Deus, a tua beleza. Em nome de Jesus.</p>
+        </div>
+
+        <p class="quando">Esta é a que está marcada. Metade do que vai sair da sua boca não é sua — é o Salmo 104, e está escrito à sua frente. A outra metade tem uma ideia só e cabe em três linhas. É exatamente assim que uma primeira vez deve ser.</p>
+
+        <div class="rezar longa">
+          <p class="tag">reserva &middot; só se a sala pedir mais</p>
+          <p>E o que virmos da tua beleza, Senhor, que não fique só aqui dentro. Em nome de Jesus.</p>
+        </div>
+
+        <div class="grupo">
+          <h3>A sua oração já estava escrita</h3>
+          <div class="versiculos ancoras">
+            <div class="v">
+              <p class="frase">«…abra os nossos olhos…»</p>
+              <p class="ref">Efésios 1:17-18 <span>&middot; ARA</span></p>
+              <blockquote>…para que o Deus de nosso Senhor Jesus Cristo, o Pai da glória, vos conceda espírito de sabedoria e de revelação no pleno conhecimento dele, iluminados os olhos do vosso coração…</blockquote>
+            </div>
+            <div class="v">
+              <p class="frase">«…contemplar a tua glória…»</p>
+              <p class="ref">Salmos 27:4 <span>&middot; ARA</span></p>
+              <blockquote>Uma coisa peço ao S<span class="vs">ENHOR</span>, e a buscarei: que eu possa morar na Casa do S<span class="vs">ENHOR</span> todos os dias da minha vida, para contemplar a beleza do S<span class="vs">ENHOR</span> e meditar no seu templo.</blockquote>
+            </div>
+            <div class="v">
+              <p class="frase">«…e a beleza da tua santidade…»</p>
+              <p class="ref">Salmos 29:2 <span>&middot; ARC</span></p>
+              <blockquote>Dai ao S<span class="vs">ENHOR</span> a glória devida ao seu nome; adorai o S<span class="vs">ENHOR</span> na beleza da sua santidade.</blockquote>
+            </div>
+          </div>
+          <p class="quando">Você não inventou nada estranho. Sem ir procurar, escreveu três pedidos que já estavam em Paulo e nos Salmos — e o segundo é, palavra por palavra, o pedido do Salmo 27:4. Guarde isto para a próxima vez que achar que precisa pensar muito antes de abrir a boca.</p>
+        </div>
+
+        <div class="guardas">
+          <p class="tag">Se alguma coisa correr mal</p>
+          <ol>
+            <li><b>Travou na leitura?</b> Continue a ler. O texto está à sua frente, e ninguém ouve hesitação em quem está lendo — é a vantagem inteira de começar por um versículo.</li>
+            <li><b>Travou na oração?</b> Salte direto para «em nome de Jesus, amém». Fecha sozinho, e ninguém percebe que você cortou.</li>
+            <li><b>Achou curto?</b> É para ser. Trinta segundos com uma ideia só pesam mais na sala do que três minutos a vaguear.</li>
+            <li><b>O «amém» não é enfeite.</b> É o sinal de que você acabou. Sem ele, a sala fica esperando mais — e é nesse silêncio que dá vontade de continuar falando.</li>
+          </ol>
+          <p class="obs">Os dez segundos antes, ainda sentado: <a href="#b-antes">Antes de levantar a voz</a>.</p>
+        </div>
+
+        <p class="quando"><b>Como usar:</b> decore só a primeira frase — «Bendiga ao S<span class="vs">ENHOR</span>, ó minha alma» — e leia o resto. Repare que a NVI diz «bendiga <b>ao</b> S<span class="vs">ENHOR</span>». Nas marcas <span class="pausa" aria-hidden="true"></span> pare e respire: é a pausa que faz a sala orar com você, e é ela que impede a pressa de comer as suas palavras.</p>
+      </section>
+
+            <!-- ============ 1 ============ -->
       <section class="bloco" id="b-antes">
         <header>
           <h2>Antes de levantar a voz</h2>
@@ -1262,7 +1379,7 @@ h3{
   <section class="exercicio" id="exercicio">
     <p class="eyebrow">Exercício diário</p>
     <h2>Dez minutos, em voz alta</h2>
-    <p class="intro">Cinco dias por semana, sempre no mesmo sítio, sempre com a mesma forma. Em voz alta é a parte que não se negoceia: rezar num sussurro é a vergonha a negociar contigo, e treina o defeito em vez do contrário. Os dez blocos deste cartão rodam pelos dias — nunca se ora por tudo num dia, ora-se por tudo dentro de um ciclo.</p>
+    <p class="intro">Cinco dias por semana, sempre no mesmo sítio, sempre com a mesma forma. Em voz alta é a parte que não se negoceia: rezar num sussurro é a vergonha a negociar contigo, e treina o defeito em vez do contrário. Os dez blocos temáticos rodam pelos dias — nunca se ora por tudo num dia, ora-se por tudo dentro de um ciclo. O bloco da primeira oração fica fora da rotação: é para uma ocasião, não para um ciclo.</p>
 
     <p class="gatilho"><span>A hora é um lugar</span> Carro estacionado, motor desligado, antes de saíres. É a única janela do teu dia onde podes falar em volume normal sem constranger ninguém. Se trabalhares em casa, o carro na garagem à mesma. Uma única recuperação: 13h, no mesmo carro. Duas opções são plano; três são negociação.</p>
 
@@ -1350,7 +1467,7 @@ h3{
   </main>
 
   <footer class="colofao">
-    <p>Traduções: <code>ARA</code> Almeida Revista e Atualizada &middot; <code>ARC</code> Almeida Revista e Corrigida. As trinta referências deste cartão foram conferidas texto a texto contra a tradução indicada.</p>
+    <p>Traduções: <code>ARA</code> Almeida Revista e Atualizada &middot; <code>ARC</code> Almeida Revista e Corrigida &middot; <code>NVI</code> Nova Versão Internacional. As trinta e três referências deste cartão foram conferidas texto a texto contra a tradução indicada.</p>
     <p>Os degraus marcados ficam guardados apenas neste navegador — não saem daqui e não são enviados a ninguém. Para imprimir, use <code>Ctrl</code>+<code>P</code>: a versão impressa traz só as orações curtas, uma por bloco.</p>
   </footer>
 
